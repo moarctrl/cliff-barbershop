@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Haircut',
+    description: 'Professional men\'s haircuts in Muscat. Expert barbers deliver precision cuts tailored to your style.',
+    href: '/areas-we-serve/muscat/haircut',
+    icon: 'scissors'
+  },
+  {
+    title: 'Shave',
+    description: 'Traditional hot towel shaves and modern razor styling in Muscat.',
+    href: '/areas-we-serve/muscat/shave',
+    icon: 'razor'
+  },
+  {
+    title: 'Hair Styling',
+    description: 'Expert hair styling for any occasion in Muscat.',
+    href: '/areas-we-serve/muscat/hair-styling',
+    icon: 'style'
+  },
+  {
+    title: 'Facial',
+    description: 'Rejuvenating facial treatments designed for men in Muscat.',
+    href: '/areas-we-serve/muscat/facial',
+    icon: 'spa'
+  },
+  {
+    title: 'Grooming Packages',
+    description: 'Complete grooming packages in Muscat for the ultimate experience.',
+    href: '/areas-we-serve/muscat/grooming-packages',
+    icon: 'package'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Cliff Barbershop - Muscat",
+  "description": "Muscat's premier men's barbershop. Expert haircuts, shaves, and grooming services in Muscat, Oman.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Muscat",
+    "addressRegion": "Muscat Governorate",
+    "addressCountry": "OM"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/areas-we-serve/muscat"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Barbershop in Muscat | Cliff Barbershop"
+    description="Cliff Barbershop Muscat's premier men's salon. Expert haircuts, shaves & grooming services. Visit us in Muscat, Oman. Book your appointment today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Areas We Serve', url: 'https://cliffbarbershop.com/areas-we-serve' },
+      { name: 'Muscat', url: 'https://cliffbarbershop.com/areas-we-serve/muscat' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Barbershop in Muscat
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Cliff Barbershop is Muscat's premier destination for men's grooming. Expert haircuts, professional shaves, and complete grooming services in the heart of Oman.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services in Muscat -->
+  <section class="section bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Services in Muscat</h2>
+        <p class="section-subtitle mx-auto mt-4">
+          All our premium grooming services are available at our Muscat location.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Muscat -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-center mb-8">Visit Us in Muscat</h2>
+      <div class="prose-content">
+        <p>
+          Located in the heart of Muscat, Cliff Barbershop brings premium men's grooming to Oman's capital. Whether you're a resident or visiting for business or tourism, our barbershop offers a relaxing escape from the busy city.
+        </p>
+        <p>
+          Our Muscat location features modern facilities, a comfortable atmosphere, and a team of skilled barbers dedicated to helping you look your best. We understand the lifestyle and preferences of gentlemen in Muscat and tailor our services accordingly.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

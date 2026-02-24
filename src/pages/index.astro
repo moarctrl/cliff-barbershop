@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOHead from '../components/SEOHead.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AreaCard from '../components/AreaCard.astro';
+
+const services = [
+  {
+    title: 'Haircut',
+    description: 'Professional men\'s haircuts with modern techniques and classic styling. Our expert barbers deliver precision cuts tailored to your face shape and style preferences.',
+    href: '/services/haircut',
+    icon: 'scissors'
+  },
+  {
+    title: 'Shave',
+    description: 'Traditional hot towel shaves and modern razor styling. Experience the ultimate relaxation with our premium shaving services.',
+    href: '/services/shave',
+    icon: 'razor'
+  },
+  {
+    title: 'Hair Styling',
+    description: 'Expert hair styling for any occasion. From everyday looks to special events, our stylists create the perfect style for you.',
+    href: '/services/hair-styling',
+    icon: 'style'
+  },
+  {
+    title: 'Facial',
+    description: 'Rejuvenating facial treatments designed specifically for men. Deep cleansing and hydrating therapies for healthy, radiant skin.',
+    href: '/services/facial',
+    icon: 'spa'
+  },
+  {
+    title: 'Grooming Packages',
+    description: 'Complete grooming packages combining multiple services. The ultimate pampering experience for the modern gentleman.',
+    href: '/services/grooming-packages',
+    icon: 'package'
+  }
+];
+
+const areas = [
+  {
+    name: 'Muscat',
+    description: 'Visit our flagship barbershop in the heart of Muscat. Premium men\'s grooming services in Oman\'s capital city.',
+    href: '/areas-we-serve/muscat'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Cliff Barbershop",
+  "image": "https://cliffbarbershop.com/images/cliff-barbershop-og.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Muscat",
+    "addressRegion": "Muscat Governorate",
+    "addressCountry": "OM"
+  },
+  "telephone": "+96800000000",
+  "openingHours": ["Mo-Sa 09:00-21:00"],
+  "priceRange": "$$",
+  "url": "https://cliffbarbershop.com",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "23.5893697",
+    "longitude": "58.4425891"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Muscat Governorate"
+  },
+  "sameAs": [
+    "https://instagram.com/cliff_om"
+  ]
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Cliff Barbershop Muscat | Premium Men's Grooming in Oman"
+    description="Cliff Barbershop Muscat's premier men's salon. Expert haircuts, shaves & grooming services. Visit us in Muscat, Oman. Book your appointment today!"
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="relative bg-dark-900 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-dark-800 to-dark-900 opacity-90"></div>
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ed7720\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-40">
+      <div class="max-w-3xl">
+        <span class="inline-block px-4 py-1.5 bg-primary-600/20 text-primary-400 font-medium text-sm rounded-full mb-6">
+          Muscat's Premier Men's Salon
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight">
+          Cliff Barbershop
+          <span class="text-primary-500 block mt-2">Muscat, Oman</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+          Experience premium men's grooming at Cliff Barbershop. Expert haircuts, professional shaves, and complete grooming services in the heart of Muscat.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="btn btn-primary text-center">
+            Book Appointment
+          </a>
+          <a href="/services" class="btn bg-white/10 text-white hover:bg-white/20 text-center">
+            Our Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Professional Men's Grooming Services</h2>
+        <p class="section-subtitle mx-auto mt-4">
+          From classic haircuts to complete grooming packages, we provide premium services tailored to the modern gentleman.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/services" class="btn btn-outline">
+          View All Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="section-title">Why Choose Cliff Barbershop?</h2>
+          <p class="text-lg text-gray-600 mb-8">
+            We combine traditional barbering techniques with modern styling to give you the perfect look. Our commitment to quality and customer satisfaction sets us apart.
+          </p>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-dark-900">Expert Barbers</h3>
+                <p class="text-gray-600">Our team consists of highly skilled professionals with years of experience in men's grooming.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-dark-900">Flexible Hours</h3>
+                <p class="text-gray-600">Open Monday to Saturday from 9 AM to 9 PM to accommodate your busy schedule.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading font-semibold text-lg text-dark-900">Premium Facilities</h3>
+                <p class="text-gray-600">Relax in our modern, clean, and comfortable barbershop environment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-square bg-gradient-to-br from-primary-100 to-primary-50 rounded-3xl flex items-center justify-center">
+            <div class="text-center p-8">
+              <div class="w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </div>
+              <p class="text-4xl font-bold text-primary-600 mb-2">5+</p>
+              <p class="text-gray-600 font-medium">Years of Excellence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas We Serve -->
+  <section class="section bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="section-title">Areas We Serve</h2>
+        <p class="section-subtitle mx-auto mt-4">
+          Visit us at our location in Muscat, Oman. We're proud to serve gentlemen across the capital region.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {areas.map(area => (
+          <AreaCard
+            name={area.name}
+            description={area.description}
+            href={area.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-dark-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+        Ready for a Fresh Look?
+      </h2>
+      <p class="text-lg text-gray-300 mb-8">
+        Book your appointment today and experience the Cliff Barbershop difference. Walk out looking and feeling your best.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+        <a href="/pricing" class="btn bg-white/10 text-white hover:bg-white/20">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

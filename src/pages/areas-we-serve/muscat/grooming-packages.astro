@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Grooming Packages in Muscat",
+  "description": "Complete grooming packages in Muscat at Cliff Barbershop. Combine multiple services for the ultimate men's grooming experience. Book today!",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat",
+        "addressCountry": "OM"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/areas-we-serve/muscat/grooming-packages"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Grooming Packages in Muscat | Cliff Barbershop"
+    description="Complete grooming packages in Muscat at Cliff Barbershop. Combine multiple services for the ultimate men's grooming experience. Book today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Areas We Serve', url: 'https://cliffbarbershop.com/areas-we-serve' },
+      { name: 'Muscat', url: 'https://cliffbarbershop.com/areas-we-serve/muscat' },
+      { name: 'Grooming Packages', url: 'https://cliffbarbershop.com/areas-we-serve/muscat/grooming-packages' }
+    ]}
+    schema={schema}
+  />
+
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Grooming Packages in Muscat</h1>
+        <p class="text-lg md:text-xl text-gray-300">Complete grooming packages in Muscat at Cliff Barbershop. Indulge in the ultimate pampering experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Premium Grooming Packages in Muscat</h2>
+        <p>Our grooming packages at Cliff Barbershop in Muscat combine multiple services to give you the complete salon experience. From quick refreshers to full transformations, we have packages to suit every need.</p>
+        <h2>Our Packages</h2>
+        <ul>
+          <li><strong>The Classic:</strong> Haircut + Hot Towel Shave</li>
+          <li><strong>The Executive:</strong> Haircut + Hair Styling + Beard Trim</li>
+          <li><strong>The Ultimate:</strong> Haircut + Shave + Facial + Hair Styling</li>
+          <li><strong>The Relaxation:</strong> Facial + Head Massage</li>
+        </ul>
+        <h2>Book Your Grooming Package in Muscat</h2>
+        <p>Experience the ultimate grooming at Cliff Barbershop. Book your package appointment in Muscat today.</p>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">Book Appointment</a>
+        <a href="/pricing" class="btn btn-outline">View Pricing</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

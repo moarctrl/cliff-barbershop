@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Grooming Packages - Muscat",
+  "description": "Complete men's grooming packages in Muscat, Oman. Combine multiple services for the ultimate grooming experience.",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/services/grooming-packages"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Grooming Packages Muscat | Cliff Barbershop"
+    description="Complete grooming packages in Muscat at Cliff Barbershop. Combine haircuts, shaves, and more for the ultimate men's grooming experience. Book today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Services', url: 'https://cliffbarbershop.com/services' },
+      { name: 'Grooming Packages', url: 'https://cliffbarbershop.com/services/grooming-packages' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Grooming Packages in Muscat
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Indulge in our complete grooming packages. Combine multiple services for the ultimate pampering experience at Cliff Barbershop.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Premium Grooming Packages in Muscat</h2>
+        <p>
+          At Cliff Barbershop, we believe that complete grooming is about more than just a haircut. Our grooming packages combine multiple services to give you the full salon experience. Whether you need a quick refresh or a complete transformation, we have a package to suit your needs.
+        </p>
+
+        <h2>Our Grooming Packages</h2>
+        <ul>
+          <li><strong>The Classic:</strong> Haircut + Hot Towel Shave</li>
+          <li><strong>The Executive:</strong> Haircut + Hair Styling + Beard Trim</li>
+          <li><strong>The Ultimate:</strong> Haircut + Shave + Facial + Hair Styling</li>
+          <li><strong>The Relaxation:</strong> Facial + Head Massage + Hot Towel Treatment</li>
+          <li><strong>Custom Package:</strong> Build your own combination of services</li>
+        </ul>
+
+        <h2>Why Choose a Package?</h2>
+        <p>
+          Grooming packages offer better value than individual services while ensuring you get comprehensive care. Each package is designed to address all your grooming needs in one visit, leaving you looking and feeling your absolute best.
+        </p>
+
+        <h2>Book Your Grooming Package in Muscat</h2>
+        <p>
+          Experience the ultimate grooming at Cliff Barbershop. Book your package appointment today and treat yourself to the complete salon experience.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Book Appointment
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+
+      <!-- Related Services -->
+      <div class="mt-16 pt-12 border-t border-gray-200">
+        <h3 class="text-xl font-heading font-semibold text-dark-900 mb-6">Individual Services</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="/services/haircut" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Haircut</span>
+          </a>
+          <a href="/services/shave" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Shave Service</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

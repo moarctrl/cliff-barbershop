@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Haircut',
+    description: 'Professional men\'s haircuts with modern techniques and classic styling. Our expert barbers deliver precision cuts tailored to your face shape and style preferences.',
+    href: '/services/haircut',
+    icon: 'scissors'
+  },
+  {
+    title: 'Shave',
+    description: 'Traditional hot towel shaves and modern razor styling. Experience the ultimate relaxation with our premium shaving services.',
+    href: '/services/shave',
+    icon: 'razor'
+  },
+  {
+    title: 'Hair Styling',
+    description: 'Expert hair styling for any occasion. From everyday looks to special events, our stylists create the perfect style for you.',
+    href: '/services/hair-styling',
+    icon: 'style'
+  },
+  {
+    title: 'Facial',
+    description: 'Rejuvenating facial treatments designed specifically for men. Deep cleansing and hydrating therapies for healthy, radiant skin.',
+    href: '/services/facial',
+    icon: 'spa'
+  },
+  {
+    title: 'Grooming Packages',
+    description: 'Complete grooming packages combining multiple services. The ultimate pampering experience for the modern gentleman.',
+    href: '/services/grooming-packages',
+    icon: 'package'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description,
+      "url": `https://cliffbarbershop.com${service.href}`
+    }
+  }))
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Men's Grooming Services | Cliff Barbershop Muscat"
+    description="Explore our professional men's grooming services in Muscat, Oman. Haircuts, shaves, hair styling, facials, and complete grooming packages."
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Services', url: 'https://cliffbarbershop.com/services' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Our Services
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Discover our range of professional men's grooming services in Muscat. From classic haircuts to complete spa experiences, we have everything you need to look and feel your best.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            icon={service.icon}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark-900 mb-6">
+        Ready to Book?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8">
+        Contact us today to schedule your appointment. Our team is ready to provide you with the best grooming experience in Muscat.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon?: string;
+}
+
+const { title, description, href, icon } = Astro.props;
+---
+
+<a href={href} class="block group">
+  <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+    <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-100 transition-colors">
+      {icon === 'scissors' && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path>
+        </svg>
+      )}
+      {icon === 'razor' && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+      )}
+      {icon === 'style' && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+        </svg>
+      )}
+      {icon === 'spa' && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6c-2 0-3 1-3 3 0 1.5 1 2.5 2 3.5S12 14 12 15c0-1 .5-1.5 1.5-2.5S15 10.5 15 9c0-2-1-3-3-3z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18c-3 0-5-1.5-5-4 0-2 1.5-3 3-4 0 2.5 1 4 2 5 1-1 2-2.5 2-5 1.5 1 3 2 3 4 0 2.5-2 4-5 4z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+        </svg>
+      )}
+      {icon === 'package' && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+        </svg>
+      )}
+      {!['scissors', 'razor', 'style', 'spa', 'package'].includes(icon || '') && (
+        <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path>
+        </svg>
+      )}
+    </div>
+    <h3 class="font-heading font-semibold text-lg text-dark-900 mb-2 group-hover:text-primary-600 transition-colors">
+      {title}
+    </h3>
+    <p class="text-gray-600 text-sm leading-relaxed">
+      {description}
+    </p>
+    <div class="mt-4 flex items-center text-primary-600 font-medium text-sm group-hover:gap-3 transition-all">
+      <span>Learn More</span>
+      <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </div>
+  </div>
+</a>

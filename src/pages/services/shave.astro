@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Shave Service - Muscat",
+  "description": "Professional shave services in Muscat, Oman. Traditional hot towel shaves and modern razor styling for the distinguished gentleman.",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/services/shave"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Professional Shave Services Muscat | Cliff Barbershop"
+    description="Experience the best shave in Muscat at Cliff Barbershop. Traditional hot towel shaves and modern razor styling. Book your appointment today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Services', url: 'https://cliffbarbershop.com/services' },
+      { name: 'Shave', url: 'https://cliffbarbershop.com/services/shave' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Professional Shave in Muscat
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Experience the ultimate grooming ritual with our professional shave services. Traditional hot towel shaves and modern razor styling at Cliff Barbershop.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Traditional Shave Services in Muscat</h2>
+        <p>
+          At Cliff Barbershop, we bring back the art of traditional shaving. Our professional shave services in Muscat combine time-honored techniques with premium products to give you the closest, most comfortable shave possible.
+        </p>
+
+        <h2>Our Shave Services</h2>
+        <ul>
+          <li><strong>Hot Towel Shave:</strong> The classic barbering experience with warm towels and premium shaving cream</li>
+          <li><strong>Straight Razor Shave:</strong> Traditional straight razor for the ultimate precision</li>
+          <li><strong>Beard Sculpting:</strong> Shape and maintain your beard with expert precision</li>
+          <li><strong>Mustache Styling:</strong> Professional mustache trimming and styling</li>
+          <li><strong>Post-Shave Treatment:</strong> Soothing after-shave balm to calm and moisturize</li>
+        </ul>
+
+        <h2>The Cliff Barbershop Experience</h2>
+        <p>
+          Your shave begins with a hot towel treatment to open pores and soften facial hair. We then apply premium shaving cream followed by a meticulous shave using either a straight razor or modern safety razor. The experience concludes with a cool towel, aftershave, and moisturizing balm.
+        </p>
+
+        <h2>Book Your Shave in Muscat</h2>
+        <p>
+          Treat yourself to the best shave in Muscat. Book your appointment at Cliff Barbershop and experience the difference of a professional barber's touch.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Book Appointment
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+
+      <!-- Related Services -->
+      <div class="mt-16 pt-12 border-t border-gray-200">
+        <h3 class="text-xl font-heading font-semibold text-dark-900 mb-6">Other Services You May Like</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="/services/haircut" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Haircut</span>
+          </a>
+          <a href="/services/grooming-packages" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Grooming Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

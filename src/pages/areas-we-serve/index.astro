@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+import AreaCard from '../../components/AreaCard.astro';
+
+const areas = [
+  {
+    name: 'Muscat',
+    description: 'Visit our flagship barbershop in the heart of Muscat. Premium men\'s grooming services in Oman\'s capital city.',
+    href: '/areas-we-serve/muscat'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": areas.map((area, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Place",
+      "name": area.name,
+      "description": area.description,
+      "url": `https://cliffbarbershop.com${area.href}`
+    }
+  }))
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Areas We Serve | Cliff Barbershop Muscat"
+    description="Cliff Barbershop serves Muscat and surrounding areas in Oman. Visit our barbershop for premium men's grooming services."
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Areas We Serve', url: 'https://cliffbarbershop.com/areas-we-serve' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Areas We Serve
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Cliff Barbershop is proud to serve gentlemen across Muscat, Oman. Visit us at our location for premium men's grooming services.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas Grid -->
+  <section class="section bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {areas.map(area => (
+          <AreaCard
+            name={area.name}
+            description={area.description}
+            href={area.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark-900 mb-6">
+        Visit Us in Muscat
+      </h2>
+      <p class="text-lg text-gray-600 mb-8">
+        We're located in Muscat and ready to provide you with the best grooming experience in Oman. Contact us to plan your visit.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+        <a href="/services" class="btn btn-outline">
+          Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

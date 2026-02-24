@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOHead from '../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Cliff Barbershop",
+  "description": "Learn about Cliff Barbershop, Muscat's premier men's salon. Expert haircuts, shaves, and grooming services in Oman.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cliff Barbershop"
+  },
+  "url": "https://cliffbarbershop.com/about"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="About Cliff Barbershop | Muscat's Premier Men's Salon"
+    description="Learn about Cliff Barbershop, Muscat's premier men's salon. Expert haircuts, shaves, and grooming services in Oman."
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          About Cliff Barbershop
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Muscat's premier destination for men's grooming excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Welcome to Cliff Barbershop</h2>
+        <p>
+          Cliff Barbershop is Muscat's premier men's salon, dedicated to providing exceptional grooming services to the modern gentleman. Since our founding, we have been committed to delivering the highest quality haircuts, shaves, and grooming experiences in Oman.
+        </p>
+
+        <h2>Our Story</h2>
+        <p>
+          Founded with a vision to bring traditional barbering excellence to Muscat, Cliff Barbershop has become a trusted name in men's grooming. We combine time-honored techniques with modern styling to give our clients the best of both worlds.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+          Our mission is simple: to help every gentleman look and feel his best. We believe that great grooming is not just about appearance—it's about confidence, self-care, and personal expression. Every visit to Cliff Barbershop is designed to be a relaxing, enjoyable experience.
+        </p>
+
+        <h2>What Sets Us Apart</h2>
+        <ul>
+          <li><strong>Expert Barbers:</strong> Our team consists of highly skilled professionals with years of experience in men's grooming</li>
+          <li><strong>Premium Products:</strong> We use only the best hair and skincare products</li>
+          <li><strong>Relaxing Atmosphere:</strong> Our barbershop is designed as a sanctuary for men to unwind</li>
+          <li><strong>Personalized Service:</strong> Every client receives individual attention and customized care</li>
+        </ul>
+
+        <h2>Visit Us</h2>
+        <p>
+          Experience the Cliff Barbershop difference for yourself. Visit our location in Muscat and discover why we are the preferred choice for men's grooming in Oman. Book your appointment today and join the many satisfied gentlemen who trust us with their look.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Book Appointment
+        </a>
+        <a href="/services" class="btn btn-outline">
+          Our Services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

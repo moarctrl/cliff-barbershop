@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Facial in Muscat",
+  "description": "Men's facial treatments in Muscat at Cliff Barbershop. Rejuvenating skin care designed specifically for men. Book today!",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat",
+        "addressCountry": "OM"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/areas-we-serve/muscat/facial"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Facial in Muscat | Cliff Barbershop"
+    description="Men's facial treatments in Muscat at Cliff Barbershop. Rejuvenating skin care designed specifically for men. Book today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Areas We Serve', url: 'https://cliffbarbershop.com/areas-we-serve' },
+      { name: 'Muscat', url: 'https://cliffbarbershop.com/areas-we-serve/muscat' },
+      { name: 'Facial', url: 'https://cliffbarbershop.com/areas-we-serve/muscat/facial' }
+    ]}
+    schema={schema}
+  />
+
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Facial in Muscat</h1>
+        <p class="text-lg md:text-xl text-gray-300">Rejuvenating men's facial treatments in Muscat at Cliff Barbershop. Refresh your skin with professional care.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Men's Facial Treatments in Muscat</h2>
+        <p>Our facial treatments at Cliff Barbershop in Muscat are specifically designed for men's skin. From dealing with razor bumps to hydrating dry skin, we provide personalized care for every gentleman's needs.</p>
+        <h2>Our Facial Services</h2>
+        <ul>
+          <li>Deep Cleansing Facial - Thorough pore cleansing</li>
+          <li>Hydrating Facial - For dry or dehydrated skin</li>
+          <li>Anti-Aging Facial - Reduce fine lines and wrinkles</li>
+          <li>Razor Bump Treatment - Soothing care after shaving</li>
+        </ul>
+        <h2>Book Your Facial in Muscat</h2>
+        <p>Book your facial appointment at Cliff Barbershop and experience professional skincare in Muscat.</p>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">Book Appointment</a>
+        <a href="/pricing" class="btn btn-outline">View Pricing</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

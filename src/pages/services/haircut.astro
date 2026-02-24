@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Haircut Service - Muscat",
+  "description": "Professional men's haircut services in Muscat, Oman. Expert barbers, modern techniques, and classic styling for the modern gentleman.",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/services/haircut"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Best Haircut in Muscat | Cliff Barbershop"
+    description="Get the best haircut in Muscat at Cliff Barbershop. Expert men's haircuts with modern techniques. Book your appointment today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Services', url: 'https://cliffbarbershop.com/services' },
+      { name: 'Haircut', url: 'https://cliffbarbershop.com/services/haircut' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Best Haircut in Muscat
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Experience the finest men's haircuts in Muscat at Cliff Barbershop. Our expert barbers combine modern techniques with classic styling to give you the perfect look.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Professional Men's Haircuts in Muscat</h2>
+        <p>
+          At Cliff Barbershop, we understand that a great haircut is more than just a trim – it's about expressing your personal style. Our skilled barbers in Muscat specialize in creating looks that complement your face shape, hair type, and lifestyle.
+        </p>
+
+        <h2>Our Haircut Services</h2>
+        <ul>
+          <li><strong>Classic Cuts:</strong> Traditional styles that never go out of fashion</li>
+          <li><strong>Modern Styles:</strong> Contemporary cuts for the trendy gentleman</li>
+          <li><strong>Fade Cuts:</strong> Precision fades and skin fades</li>
+          <li><strong>Beard Trimming:</strong> Complementary beard grooming with every haircut</li>
+          <li><strong>Kids' Cuts:</strong> Gentle and patient service for young gentlemen</li>
+        </ul>
+
+        <h2>What to Expect</h2>
+        <p>
+          When you visit Cliff Barbershop in Muscat for a haircut, you can expect a relaxing experience in our modern barbershop. We start with a consultation to understand your preferences, followed by a precision cut tailored to your features. Every haircut includes a complimentary wash and styling.
+        </p>
+
+        <h2>Book Your Haircut in Muscat</h2>
+        <p>
+          Ready for a fresh look? Contact us to book your appointment at Cliff Barbershop, Muscat's premier men's salon. Walk out looking and feeling your best.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Book Appointment
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+
+      <!-- Related Services -->
+      <div class="mt-16 pt-12 border-t border-gray-200">
+        <h3 class="text-xl font-heading font-semibold text-dark-900 mb-6">Other Services You May Like</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="/services/hair-styling" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Hair Styling</span>
+          </a>
+          <a href="/services/shave" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Shave Service</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

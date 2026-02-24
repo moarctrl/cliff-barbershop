@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SEOHead from '../../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Hair Styling in Muscat",
+  "description": "Expert men's hair styling in Muscat at Cliff Barbershop. Professional stylists for everyday looks and special occasions. Book today!",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat",
+        "addressCountry": "OM"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/areas-we-serve/muscat/hair-styling"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Hair Styling in Muscat | Cliff Barbershop"
+    description="Expert men's hair styling in Muscat at Cliff Barbershop. Professional stylists for everyday looks and special occasions. Book today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Areas We Serve', url: 'https://cliffbarbershop.com/areas-we-serve' },
+      { name: 'Muscat', url: 'https://cliffbarbershop.com/areas-we-serve/muscat' },
+      { name: 'Hair Styling', url: 'https://cliffbarbershop.com/areas-we-serve/muscat/hair-styling' }
+    ]}
+    schema={schema}
+  />
+
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">Hair Styling in Muscat</h1>
+        <p class="text-lg md:text-xl text-gray-300">Expert hair styling services in Muscat at Cliff Barbershop. Look your best for any occasion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Professional Hair Styling in Muscat</h2>
+        <p>At Cliff Barbershop in Muscat, our expert stylists create perfect looks for any occasion. From everyday styling to special events, we help you look your absolute best.</p>
+        <h2>Our Styling Services</h2>
+        <ul>
+          <li>Everyday Styling - Low-maintenance looks</li>
+          <li>Special Event Styling - Weddings, parties, formal occasions</li>
+          <li>Hair Artistry - Creative styles for the fashion-forward</li>
+          <li>Style Consultation - Expert advice on the best styles</li>
+        </ul>
+        <h2>Book Your Hair Styling in Muscat</h2>
+        <p>Get the perfect hairstyle at Cliff Barbershop. Book your appointment in Muscat today.</p>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">Book Appointment</a>
+        <a href="/pricing" class="btn btn-outline">View Pricing</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

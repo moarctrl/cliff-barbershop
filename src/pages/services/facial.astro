@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SEOHead from '../../components/SEOHead.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Facial Treatment - Muscat",
+  "description": "Professional men's facial treatments in Muscat, Oman. Rejuvenating skin care designed specifically for men.",
+  "provider": {
+    "@type": "HairSalon",
+    "name": "Cliff Barbershop",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Muscat"
+      }
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Muscat"
+  },
+  "url": "https://cliffbarbershop.com/services/facial"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Men's Facial Treatment Muscat | Cliff Barbershop"
+    description="Rejuvenating men's facial treatments in Muscat at Cliff Barbershop. Deep cleansing and hydrating therapies for healthy, radiant skin. Book today!"
+    breadcrumb={[
+      { name: 'Home', url: 'https://cliffbarbershop.com/' },
+      { name: 'Services', url: 'https://cliffbarbershop.com/services' },
+      { name: 'Facial', url: 'https://cliffbarbershop.com/services/facial' }
+    ]}
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Men's Facial Treatment in Muscat
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Refresh your skin with professional facial treatments at Cliff Barbershop. Designed specifically for men to address unique skin concerns.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose-content">
+        <h2>Men's Facial Treatments in Muscat</h2>
+        <p>
+          Men's skin has different needs than women's, and our facial treatments at Cliff Barbershop are specifically designed to address these differences. From dealing with razor bumps to hydrating dry skin, our experts provide personalized care for every gentleman's skin.
+        </p>
+
+        <h2>Our Facial Services</h2>
+        <ul>
+          <li><strong>Deep Cleansing Facial:</strong> Thorough cleansing to remove dirt and unclog pores</li>
+          <li><strong>Hydrating Facial:</strong> Moisturizing treatment for dry or dehydrated skin</li>
+          <li><strong>Anti-Aging Facial:</strong> Treatments to reduce fine lines and wrinkles</li>
+          <li><strong>Razor Bump Treatment:</strong> Soothing care for sensitive skin after shaving</li>
+          <li><strong>Express Facial:</strong> Quick refresh for the busy gentleman</li>
+        </ul>
+
+        <h2>Benefits of Regular Facials</h2>
+        <p>
+          Regular facial treatments can improve skin health, reduce acne and razor bumps, slow aging signs, and boost your confidence. Our experienced therapists use premium products to ensure the best results for your skin type.
+        </p>
+
+        <h2>Book Your Facial in Muscat</h2>
+        <p>
+          Treat your skin to the care it deserves. Book your facial appointment at Cliff Barbershop in Muscat and experience the difference professional skincare can make.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="btn btn-primary">
+          Book Appointment
+        </a>
+        <a href="/pricing" class="btn btn-outline">
+          View Pricing
+        </a>
+      </div>
+
+      <!-- Related Services -->
+      <div class="mt-16 pt-12 border-t border-gray-200">
+        <h3 class="text-xl font-heading font-semibold text-dark-900 mb-6">Other Services You May Like</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="/services/shave" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Shave Service</span>
+          </a>
+          <a href="/services/grooming-packages" class="p-4 border border-gray-200 rounded-xl hover:border-primary-500 transition-colors">
+            <span class="font-medium text-dark-900">Grooming Packages</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

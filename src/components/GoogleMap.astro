@@ -1,0 +1,31 @@
+---
+export interface Props {
+  address?: string;
+  embedUrl?: string;
+}
+
+const { address = "Muscat, Oman", embedUrl } = Astro.props;
+---
+
+<div class="bg-gray-100 rounded-2xl overflow-hidden h-80 md:h-96">
+  {embedUrl ? (
+    <iframe
+      src={embedUrl}
+      width="100%"
+      height="100%"
+      style="border:0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Cliff Barbershop Location"
+    ></iframe>
+  ) : (
+    <div class="w-full h-full flex flex-col items-center justify-center bg-gray-200 text-gray-500">
+      <svg class="w-16 h-16 mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+      <p class="text-center px-4">{address}</p>
+    </div>
+  )}
+</div>

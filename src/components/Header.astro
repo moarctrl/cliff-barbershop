@@ -1,0 +1,100 @@
+---
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Areas We Serve', href: '/areas-we-serve' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Gallery', href: '/gallery' },
+  { name: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2" aria-label="Cliff Barbershop Home">
+        <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-lg md:text-xl text-dark-900">Cliff Barbershop</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition-colors hover:text-primary-600",
+              currentPath === link.href || currentPath.startsWith(link.href + '/')
+                ? "text-primary-600"
+                : "text-gray-600"
+            ]}
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a
+          href="/contact"
+          class="inline-flex items-center px-5 py-2.5 bg-primary-600 text-white font-medium text-sm rounded-lg hover:bg-primary-700 transition-colors"
+        >
+          Book Now
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-gray-600 hover:text-primary-600 transition-colors"
+        aria-label="Open menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+    <nav class="px-4 py-4 space-y-2">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            "block py-2.5 px-4 text-base font-medium rounded-lg transition-colors",
+            currentPath === link.href || currentPath.startsWith(link.href + '/')
+              ? "text-primary-600 bg-primary-50"
+              : "text-gray-600 hover:bg-gray-50"
+          ]}
+        >
+          {link.name}
+        </a>
+      ))}
+      <a
+        href="/contact"
+        class="block mt-4 py-2.5 px-4 text-base font-medium text-center bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+      >
+        Book Now
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

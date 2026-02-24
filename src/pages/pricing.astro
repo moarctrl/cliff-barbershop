@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SEOHead from '../components/SEOHead.astro';
+
+const services = [
+  {
+    name: 'Haircut',
+    description: 'Professional men\'s haircut with wash and style',
+    price: 'From OMR 5'
+  },
+  {
+    name: 'Shave',
+    description: 'Hot towel shave with straight razor',
+    price: 'From OMR 4'
+  },
+  {
+    name: 'Hair Styling',
+    description: 'Professional styling for any occasion',
+    price: 'From OMR 3'
+  },
+  {
+    name: 'Facial',
+    description: 'Men\'s facial treatment',
+    price: 'From OMR 8'
+  },
+  {
+    name: 'Beard Trim',
+    description: 'Beard shaping and trim',
+    price: 'From OMR 2'
+  }
+];
+
+const packages = [
+  {
+    name: 'The Classic',
+    description: 'Haircut + Hot Towel Shave',
+    price: 'OMR 8'
+  },
+  {
+    name: 'The Executive',
+    description: 'Haircut + Hair Styling + Beard Trim',
+    price: 'OMR 10'
+  },
+  {
+    name: 'The Ultimate',
+    description: 'Haircut + Shave + Facial + Hair Styling',
+    price: 'OMR 18'
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "PriceSpecification",
+  "name": "Cliff Barbershop Pricing",
+  "description": "Price list for men's grooming services at Cliff Barbershop Muscat",
+  "url": "https://cliffbarbershop.com/pricing"
+};
+---
+
+<BaseLayout>
+  <SEOHead
+    slot="head"
+    title="Pricing | Cliff Barbershop Muscat"
+    description="View our pricing for professional men's grooming services in Muscat. Haircuts, shaves, facials, and grooming packages available."
+    schema={schema}
+  />
+
+  <!-- Hero Section -->
+  <section class="bg-dark-900 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
+          Pricing
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300">
+          Transparent pricing for premium men's grooming services in Muscat, Oman.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Pricing -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-center mb-12">Individual Services</h2>
+      <div class="grid gap-4">
+        {services.map(service => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 class="font-heading font-semibold text-lg text-dark-900">{service.name}</h3>
+              <p class="text-gray-600 text-sm">{service.description}</p>
+            </div>
+            <span class="text-primary-600 font-bold text-lg whitespace-nowrap">{service.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Pricing -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="section-title text-center mb-12">Grooming Packages</h2>
+      <div class="grid gap-4">
+        {packages.map(pkg => (
+          <div class="bg-primary-50 rounded-xl p-6 border border-primary-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 class="font-heading font-semibold text-lg text-dark-900">{pkg.name}</h3>
+              <p class="text-gray-600 text-sm">{pkg.description}</p>
+            </div>
+            <span class="text-primary-600 font-bold text-xl">{pkg.price}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Note -->
+  <section class="section bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-600">
+        Prices may vary based on hair length and style complexity. Contact us for a precise quote.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn btn-primary">
+          Contact Us
+        </a>
+        <a href="/services" class="btn btn-outline">
+          View Services
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
